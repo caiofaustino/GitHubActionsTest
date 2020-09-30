@@ -1,0 +1,7 @@
+apply from: "../config/gradle/javadocs.gradle"
+apply from: "../config/gradle/sources.gradle"
+
+artifacts {
+    archives androidJavadocsJar
+    archives androidSourcesJar
+}
