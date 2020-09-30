@@ -1,0 +1,5 @@
+task androidSourcesJar(type: Jar) {
+    classifier = "sources"
+    from android.sourceSets.main.java.srcDirs
+    exclude("**/internal/**")
+}

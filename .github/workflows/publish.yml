@@ -1,0 +1,32 @@
+name: Publish Bintray
+
+on:
+  push:
+    branches: [ main ]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+      
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+      
+      - name: Gradle check
+        run: ./gradlew check
+      
+      - name: Publish to Bintray
+        run: ./gradlew bintrayUpload
+        env:
+          BINTRAY_USER: ${{secrets.BINTRAY_USER}}
+          BINTRAY_KEY: ${{secrets.BINTRAY_KEY}}
+          BINTRAY_GPG_PASSPHRASE: ${{secrets.BINTRAY_GPG_PASSPHRASE}}

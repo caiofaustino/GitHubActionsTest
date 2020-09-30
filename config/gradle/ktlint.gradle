@@ -1,0 +1,31 @@
+/**
+ * An anti-bikeshedding Kotlin linter with built-in formatter.
+ *
+ * Docs: https://github.com/pinterest/ktlint
+ */
+
+configurations {
+    ktlint
+}
+
+dependencies {
+    ktlint "com.pinterest:ktlint:$ktlint_version"
+}
+
+task ktlint(type: JavaExec) {
+    description = "Check Kotlin code style."
+    group = "verification"
+
+    classpath = configurations.ktlint
+    main = "com.pinterest.ktlint.Main"
+    args "src/**/*.kt", "--reporter=plain", "--reporter=checkstyle,output=${project.buildDir}/reports/klint/klint-results.xml"
+}
+
+task ktlintFormat(type: JavaExec) {
+    description = "Fix Kotlin code style deviations."
+    group = "formatting"
+
+    classpath = configurations.ktlint
+    main = "com.pinterest.ktlint.Main"
+    args "-F", "src/**/*.kt"
+}
