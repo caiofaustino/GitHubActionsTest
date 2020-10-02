@@ -14,7 +14,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "gradle-check"
-  gradle-check:
+  check-pr:
     # The type of runner that the job will run on
     # https://github.com/actions/virtual-environments/
     runs-on: ubuntu-20.04
@@ -45,3 +45,4 @@ jobs:
           echo - Running gradle check
           ./gradlew check
           echo - Gradle check finished
+
