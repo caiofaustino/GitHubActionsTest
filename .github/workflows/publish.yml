@@ -1,14 +1,13 @@
-name: Publish Bintray
+name: Publish Release
 
 on:
   push:
     branches: [ main ]
   workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   
-  publish:
+  publish_release:
     runs-on: ubuntu-latest
 
     steps:
@@ -27,11 +26,11 @@ jobs:
       - name: Gradle check
         run: ./gradlew check
       
-#      - name: Publish to Bintray
-#        run: ./gradlew bintrayUpload
-#        env:
-#          BINTRAY_USER: ${{secrets.BINTRAY_USER}}
-#          BINTRAY_KEY: ${{secrets.BINTRAY_KEY}}
+      - name: Publish to Bintray
+        run: ./gradlew bintrayUpload
+        env:
+          BINTRAY_USER: ${{secrets.BINTRAY_USER}}
+          BINTRAY_KEY: ${{secrets.BINTRAY_KEY}}
 #          BINTRAY_GPG_PASSPHRASE: ${{secrets.BINTRAY_GPG_PASSPHRASE}}
 
       - name: Set PROJECT_VERSION
@@ -49,11 +48,10 @@ jobs:
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PROJECT_VERSION: ${{ env.PROJECT_VERSION }}
         with:
           commitish: main
-          tag_name: v0.1.3-test2
-          release_name: Release {{ env.PROJECT_VERSION }}
+          tag_name: v${{ env.PROJECT_VERSION }}
+          release_name: Version ${{ env.PROJECT_VERSION }}
           body_path: ${{ github.workspace }}/release_notes.md
           draft: false
           prerelease: false
