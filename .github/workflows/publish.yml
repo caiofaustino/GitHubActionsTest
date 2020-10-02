@@ -49,6 +49,7 @@ jobs:
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PROJECT_VERSION: {{ env.PROJECT_VERSION }}
         with:
           commitish: main
           tag_name: v{{ env.PROJECT_VERSION }}
