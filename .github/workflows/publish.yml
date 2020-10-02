@@ -44,14 +44,14 @@ jobs:
           echo "▸ DONE"
 
       - name: Create GitHub Release
-          uses: actions/create-release@v1
-          env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          with:
-            tag_name: {{ env.PROJECT_VERSION }}
-            release_name: Release {{ env.PROJECT_VERSION }}
-            body: |
-              - First Test Change
-              - Second Test Change
-            draft: false
-            prerelease: false
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: {{ env.PROJECT_VERSION }}
+          release_name: Release {{ env.PROJECT_VERSION }}
+          body: |
+            - First Test Change
+            - Second Test Change
+          draft: false
+          prerelease: false
