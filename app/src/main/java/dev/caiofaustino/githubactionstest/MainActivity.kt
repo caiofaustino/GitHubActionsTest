@@ -3,6 +3,7 @@ package dev.caiofaustino.githubactionstest
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import dev.caiofaustino.testlib.TestClass
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -13,5 +14,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         testClass.logMe()
+
+        centerText.text = BuildConfig.VERSION_NAME
     }
 }
