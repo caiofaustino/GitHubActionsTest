@@ -1,3 +1,3 @@
-## Added
-- Another thing.
-- And also this.
+## Changed
+- Not much
+- Show version name on screen.
