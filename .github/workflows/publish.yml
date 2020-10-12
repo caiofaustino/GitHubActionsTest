@@ -1,13 +1,12 @@
-name: Publish Release
+name: Publish Release v0.1
 
 on:
-  push:
-    branches: [ main ]
+  # Only triggered manually
   workflow_dispatch:
 
 jobs:
   
-  publish_release:
+  publish_release-v1:
     runs-on: ubuntu-latest
 
     steps:

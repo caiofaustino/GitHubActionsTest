@@ -1,13 +1,11 @@
-name: Check Release
+name: Check Release v0.1
 
 on:
-  pull_request:
-    branches: [ main ]
-    types: [ opened, synchronize, reopened ]
+  #Only triggered manually
   workflow_dispatch:
 
 jobs:
-  check-release:
+  check-release-v1:
     runs-on: ubuntu-20.04
     
     steps:
