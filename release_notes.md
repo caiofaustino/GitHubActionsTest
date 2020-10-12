@@ -1,3 +1,2 @@
 ## Changed
-- Not much
-- Show version name on screen.
+-  Branched out v1
