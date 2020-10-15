@@ -48,7 +48,7 @@ dependencies {
     implementation 'androidx.fragment:fragment-ktx:1.2.5'
 
 
-    implementation project(':test-lib')
-//    implementation "dev.caiofaustino.testlib:test-lib:0.1.2"
+//    implementation project(':test-lib')
+    implementation "dev.caiofaustino.testlib:test-lib:0.1.5"
 
 }
