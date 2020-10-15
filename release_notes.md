@@ -1,3 +1,2 @@
 ## Changed
-- Not much
-- Show version name on screen.
+- Added a ViewModel
