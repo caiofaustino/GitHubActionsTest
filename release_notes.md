@@ -1,2 +1,2 @@
 ## Changed
-- Added a ViewModel
+- Changed tag name and version.

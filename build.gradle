@@ -28,7 +28,7 @@ allprojects {
     ext.target_sdk_version = 30
     ext.compile_sdk_version = 30
 
-    ext.version_name = "0.2.0"
+    ext.version_name = "0.2.1"
 
     // Code quality
     ext.ktlint_version = '0.34.2'
