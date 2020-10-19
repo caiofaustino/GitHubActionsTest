@@ -27,7 +27,7 @@ jobs:
         run: ./gradlew check
       
       - name: Publish to Bintray
-        run: ./gradlew bintrayUpload
+        run: ./gradlew bintrayUpload --debug --stacktrace
         env:
           BINTRAY_USER: ${{secrets.BINTRAY_USER}}
           BINTRAY_KEY: ${{secrets.BINTRAY_KEY}}
