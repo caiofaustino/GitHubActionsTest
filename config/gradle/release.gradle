@@ -130,20 +130,3 @@ bintray {
         }
     }
 }
-
-task publishAndUploadToBintray {
-    doLast {
-        def req = ['curl', '-s -X', 'POST',
-                   "-u${System.env.BINTRAY_USER}:${System.env.BINTRAY_KEY}",
-                   "${System.env.BINTRAY_API}/${theArtifactId}/${theVersion}/publish"].execute()
-        def response = req.text
-        if (response) {
-            def json = new JsonSlurper().parseText(response)
-            println "${json.files} files from ${theArtifactId} module have been published"
-        } else {
-            throw new GradleException("Publishing ${theArtifactId} failed")
-        }
-    }
-}
-
-publishAndUploadToBintray.dependsOn "bintrayUpload"
