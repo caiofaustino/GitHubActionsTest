@@ -55,3 +55,11 @@ jobs:
           body_path: ${{ github.workspace }}/release_notes.md
           draft: false
           prerelease: false
+
+      - name: Create release Pull Request
+          uses: repo-sync/pull-request@v2
+          with:
+            source_branch: "main"
+            destination_branch: "develop"
+            pr_title: "Merging back release ${{ env.PROJECT_VERSION }}"
+            github_token: ${{ secrets.GITHUB_TOKEN }}
