@@ -10,6 +10,6 @@ class MainViewModel : ViewModel() {
     val versionLiveData: LiveData<String> = versionMutableLiveData
 
     init {
-        versionMutableLiveData.value = BuildConfig.VERSION_NAME
+        versionMutableLiveData.value = "${BuildConfig.VERSION_NAME} - HOTFIX!"
     }
 }
