@@ -62,4 +62,5 @@ jobs:
           source_branch: "main"
           destination_branch: "develop"
           pr_title: "Merging back release ${{ env.PROJECT_VERSION }}"
+          pr_allow_empty: true
           github_token: ${{ secrets.GITHUB_TOKEN }}
